@@ -4,10 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN apk add --no-cache maven
-
-RUN mvn clean package -DskipTests
+RUN chmod +x mvnw
+RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/employee-management-system-0.0.1-SNAPSHOT.jar"]
